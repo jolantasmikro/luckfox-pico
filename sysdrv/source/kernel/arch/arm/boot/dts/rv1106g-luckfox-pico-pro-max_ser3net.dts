@@ -1,0 +1,132 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * Copyright (c) 2022 Rockchip Electronics Co., Ltd.
+ */
+
+/dts-v1/;
+
+#include "rv1106.dtsi"
+#include "rv1106-evb.dtsi"
+#include "rv1106-luckfox-pico-pro-max-ipc.dtsi"
+
+/ {
+	model = "Luckfox Pico Max";
+	compatible = "rockchip,rv1103g-38x38-ipc-v10", "rockchip,rv1106";
+	chosen {
+		stdout-path = &uart3;
+	/*	u-boot,spl-boot-order = &spi_nor, &emmc;*/
+	};
+};
+
+/**********FLASH**********/
+&sfc {
+	status = "okay";
+	flash@0 {
+		compatible = "spi-nand";
+		reg = <0>;
+		spi-max-frequency = <75000000>;
+		spi-rx-bus-width = <4>;
+		spi-tx-bus-width = <1>;
+	};
+	
+};
+
+/**********SDMMC**********/
+&sdmmc {
+	max-frequency = <50000000>;
+	no-sdio;
+	no-mmc;
+	bus-width = <4>;
+	cap-mmc-highspeed;
+	cap-sd-highspeed;
+	disable-wp;
+	pinctrl-names = "default";
+	pinctrl-0 = <&sdmmc0_clk &sdmmc0_cmd &sdmmc0_det &sdmmc0_bus4>;
+	status = "okay";
+};
+
+/**********ETH**********/
+&gmac {
+	status = "okay";
+};
+
+/**********USB**********/
+&usbdrd_dwc3 {
+	status = "okay";
+	dr_mode = "peripheral";
+};
+
+/**********SPI**********/
+&spi0 {
+	status = "disabled";
+	spidev@0 {
+		spi-max-frequency = <50000000>;
+	};
+  fbtft@0 {
+		spi-max-frequency = <50000000>;
+  };
+};
+
+/**********I2S**********/
+/* I2S0_8CH */
+&i2s0_8ch {
+	status = "disabled";  /* Uždisablinta, kad veiktu UART0_M1	rts*/
+};
+
+/**********I2C**********/
+/* I2C3_M1 */
+&i2c3 {
+	status = "disabled";
+	clock-frequency = <100000>;
+};
+
+/* I2C1_M1 */
+&i2c1 {
+	status = "disabled";
+	clock-frequency = <100000>;
+};
+
+&i2c4 {
+	status = "disabled";
+	pinctrl-0 = <&i2c4m2_xfer>;
+};
+
+
+/**********UART**********/
+/* UART0_M1 */
+&uart0 {
+	status = "okay";
+	pinctrl-0 = <&uart0m1_xfer &uart0m1_rtsn>;
+};
+
+/* UART1_M1 */
+&uart1 {
+	status = "okay";
+	pinctrl-0 = <&uart1m1_xfer &uart1m1_ctsn &uart1m1_rtsn>;
+};
+
+/* UART2_M1 */
+&uart2 {
+	status = "okay";
+};
+
+/* UART3_M1 */
+&uart3 {
+	status = "okay";
+};
+
+/* UART4_M1 */
+&uart4 {
+	status = "okay";
+};
+
+/* UART5_M2 */
+&uart5 {
+	status = "disabled";	 /* Uždisablinta, kad galimėtu naudoti consolei*/
+    pinctrl-0 = <&uart5m2_xfer>;
+};
+
+/**********RTC**********/
+&rtc {
+	status = "okay";
+};
