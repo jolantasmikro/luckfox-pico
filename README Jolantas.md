@@ -40,33 +40,8 @@ make
 ```
 
 
-* It provides a customized SDK specifically for Luckfox Pico series development boards 
-* Aimed at providing developers with a better programming experience
-## SDK Updatelog
-* Current version V1.3
-1. Added support for Luckfox-pico-Ultra and Luckfox-pico-Ultra-W
-2. Optimized the selection process for board support files
-3. Improved the download speed of buildroot by selecting the fastest mirror based on the download environment
-4. Enhanced buildroot package management operations; added the `buildrootconfig` option to the `build.sh` command to directly enter buildroot's menuconfig
-5. Improved the rootfs clean operation to retain Buildroot already downloaded packages
-6. Enhanced kernel configuration operations; added the `kernelconfig` option to the `build.sh` command to enter the kernel's menuconfig
-7. Added a `config` folder for quick configuration of device trees, kernel, and buildroot
-8. Optimized the system's root filesystem packaging process, allowing customization of root files in the `<Luckfox-pico SDK PATH>/output/out/rootfs_uclibc_rv1106` folder
-9. Modified the default device tree configuration, enabling pin and interface function configuration on the board system using the `luckfox-config` command
-10. Partial bug fixes
-## SDK Usage Instructions
-* recommended operating system : Ubuntu 22.04 
-### Installing Dependencies
-```shell
-sudo apt-get install -y git ssh make gcc gcc-multilib g++-multilib module-assistant expect g++ gawk texinfo libssl-dev bison flex fakeroot cmake unzip gperf autoconf device-tree-compiler libncurses5-dev pkg-config bc python-is-python3 passwd openssl openssh-server openssh-client vim file cpio rsync
-```
-
-
-
-
-
-/************* CONSOLE From UART2 ************************/
-https://forums.luckfox.com/viewtopic.php?t=975
+[CONSOLE_From_UART2]
+(https://forums.luckfox.com/viewtopic.php?t=975)
 
 1. Nusikopijuojam 
     rv1106_ddr_924MHz_v1.10.bin iš /luckfox-pico/sysdrv/source/uboot/rkbin/bin/rv11/  į /luckfox-pico/sysdrv/source/uboot/rkbin/tools
