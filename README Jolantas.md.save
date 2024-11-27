@@ -28,16 +28,12 @@ luckfox@luckfox:~/Luckfox-Pico/luckfox-pico$ ./build.sh
 
 ```shell
 cd /home/jok/LuckFox/ser3net/luckfox-pico/sysdrv/source/buildroot/buildroot-2023.02.6/
-  In firs time: (make luckfox_pico_defconfig)
+make luckfox_pico_defconfig
 make menuconfig
 ```
 1. Add minicom
 2. Add iftop 
-3. Add owerlays path ../../../../overlays/buildroot/   (System configuration --> ... Root filesystem overlay directories)
-4. Add pppd  Target packages → Networking applications
-5. Add cJSON
-5. Add libuci (automatiškai prisideda ir libubox, kuris turi daug gerų funkcijų)
-
+3. Add owerlays path ../../../../overlays/buildroot/    (System configuration --> ... 
 
 ```shell
 make savedefconfig 
