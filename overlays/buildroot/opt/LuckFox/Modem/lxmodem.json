@@ -1,0 +1,8 @@
+{
+    "main": {
+        "wdt_ping": "172.16.1.105",
+        "main_serial": "/dev/ttyS1",
+        "main_serial_speed": 115200,
+        "mux_serial": "/dev/ttyGSM2"
+    }
+}

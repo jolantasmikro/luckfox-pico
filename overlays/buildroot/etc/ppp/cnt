@@ -1,0 +1,7 @@
+TIMEOUT         60
+ABORT           'BUSY'
+ABORT           'ERROR'
+ABORT           'NO CARRIER'
+''              'AT'
+OK              ATD*99***1#
+CONNECT         ''

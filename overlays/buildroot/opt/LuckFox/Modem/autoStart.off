@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -f "/opt/LuckFox/Modem/lxmodem" ]; then
+    killall -9 lxmodem ; rm -f /opt/LuckFox/Modem/lxmodem
+else
+    echo "---SKIP: File /opt/LuckFox/Modem/modem not exists"
+    killall -9 lxmodem
+fi

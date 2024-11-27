@@ -37,6 +37,7 @@ make menuconfig
 4. Add pppd  Target packages → Networking applications
 5. Add cJSON
 5. Add libuci (automatiškai prisideda ir libubox, kuris turi daug gerų funkcijų)
+6. Add libcurl
 
 
 ```shell

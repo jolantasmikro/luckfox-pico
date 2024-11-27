@@ -1,5 +1,5 @@
-/dev/ttyS1
+/dev/ttyGSM4
 115200
 defaultroute
-connect "/usr/sbin/chat -v -f /etc/ppp/gprs-connect"
+connect "/usr/sbin/chat -v -f /etc/ppp/cnt"
 disconnect "/usr/sbin/chat -v -f /etc/ppp/gprs-disconnect"
