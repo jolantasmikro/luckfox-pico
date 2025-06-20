@@ -1,0 +1,33 @@
+#!/bin/sh
+s=1
+
+d=`date +"%Y-%m-%d %H:%M:%S"`
+SERVICE="s2n"
+
+while :
+do
+    sleep $s
+
+    x=$(ps | grep -v grep | grep $SERVICE)
+
+    if [ -n "$x" ]; then
+        #echo "Running"
+        s=10
+    else
+        echo "$SERVICE daemon Not Running"
+        if [ -f "/root/bin/$SERVICE" ]; then
+            echo -e "$d Starting Ser2NET daemon /root/bin/$SERVICE"
+            logger "$d Starting Ser2NET daemon /root/bin/$SERVICE"
+            /root/bin/$SERVICE
+            s=2
+        else
+            if [ -f "/root/bin/ser2net" ]; then
+                echo "Ser2NER not active. To activate please run /root/bin/autoStart.on"
+                s=10
+            else
+                echo "Ser2NER service not installed, copy ser2net binary to /root/bin/ folder"
+                s=30
+            fi
+        fi
+    fi
+done

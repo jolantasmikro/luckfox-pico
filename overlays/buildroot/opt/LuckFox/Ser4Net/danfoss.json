@@ -1,0 +1,25 @@
+{
+  "dfs_mqtt_mbus": {
+    "enabled": 1,
+    "enable_SSL": 1,
+    "host": "mqtts.enspire.danfoss.com",
+    "port": 8883,
+    "clientId": "66960A623AB871B177FF19F8",
+    "username": "66960A623AB871B177FF19F8",
+    "password": "123Panevezys123",
+    "topic_pub": "in/11EEDD47447EEF10857F3F1A5EA10BA8/11EF4337730C8F8091C3B5E6EA8BC0B1/66960A623AB871B177FF19F8/mbus-readouts/teltonika",
+    "key_file_path": "/opt/LuckFox/Ser4Net/Keys/app-lhm-danfoss-com.pem"
+  },
+    "dfs_mqtt_modbus": {
+    "enabled": 1,
+    "enable_SSL": 1,
+    "host": "mqtts.enspire.danfoss.com",
+    "port": 8883,
+    "clientId": "669609D13AB871B177FF19F7",
+    "username": "669609D13AB871B177FF19F7",
+    "password": "123Panevezys",
+    "responseTopic": "in/11EEDD47447EEF10857F3F1A5EA10BA8/11EF43371CADCFF091C3B5E6EA8BC0B1/669609D13AB871B177FF19F7/response",
+    "requestTopic": "out/11EEDD47447EEF10857F3F1A5EA10BA8/11EF43371CADCFF091C3B5E6EA8BC0B1/669609D13AB871B177FF19F7/request",
+    "key_file_path": "/opt/LuckFox/Ser4Net/Keys/app-lhm-danfoss-com.pem"
+  }
+}

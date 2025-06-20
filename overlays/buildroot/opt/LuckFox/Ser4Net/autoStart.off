@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -f "/root/bin/s2n" ]; then
+    killall -9 s2n ; rm -f /root/bin/s2n
+else
+    echo "---SKIP: File /root/bin/s2n not exists"
+    killall -9 s2n
+fi

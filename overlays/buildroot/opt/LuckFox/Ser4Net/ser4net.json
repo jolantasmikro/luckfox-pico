@@ -1,0 +1,40 @@
+{
+	"main": {
+		"wdt_ping": "192.168.1.103"
+	},
+	"apator": {
+		"enabled": 1,
+		"type": "metra",
+		"uart": "/dev/ttyS6",
+		"publish_interval": 5
+	},
+	"mbus": {
+		"enabled": 1,
+		"interval": 2,
+		"repeat": 3,
+		"history_enable": 1,
+		"history_path": ""
+	},
+	"mqtt": {
+		"enabled": 1,
+		"host": "192.168.1.103",
+		"port": 1883,
+		"client_id": "25679",
+		"username": "mikroeta",
+		"password": "mikroeta",
+		"topic_pub": "ARTAKIS",
+		"topic_sub": "none"
+	},
+	"wmbus_rf4": {
+		"enabled": 1,
+		"history_enable": 1,
+		"history_path": "",
+		"wmbus_mode": "T",
+		"meters": [
+			25342687,
+			26624570,
+			26624569,
+			26624571
+		]
+	}
+}

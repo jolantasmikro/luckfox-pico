@@ -38,6 +38,47 @@ make menuconfig
 5. Add cJSON
 5. Add libuci (automatiškai prisideda ir libubox, kuris turi daug gerų funkcijų)
 6. Add libcurl
+7. -> Target packages                                                                                                                                                                                                                    │
+    │ (2)   -> Networking applications
+       [ ] mosquitto
+8.  Target packages  --->
+      Libraries  --->
+        Database  --->
+          [*] sqlite                                                                                                            
+            [ ]   Additional query optimizations (stat4) (NEW)                                                                       
+            [ ]   Enable convenient access to meta-data about tables and queries (NEW) 
+            [*]   Enable version 3 of the full-text search engine             
+            [ ]   Enable the JSON extensions for SQLite (NEW)                 
+            [ ]   Enable sqlite3_unlock_notify() interface (NEW)   
+            [ ]   Set the secure_delete pragma on by default (NEW)           
+            [ ]   Disable fsync (NEW)
+9.  Prompt: libmodbus                                                                                                                                                                                                                   
+  │   Location:                                                                                                                                                                                                                           
+  │     -> Target packages                                                                                                                                                                                                              
+  │       -> Libraries                                                                                                                                                                                                                   
+  │ (4)     -> Networking
+             [*] libmodbus
+10. Prompt: libev                                                                                                                                                                                                                           
+     Location:                                                                                                                                                                                                                     
+       -> Target packages                                                                                                                                                                                                        
+         -> Libraries                                                                                                                                                                                                            
+   (1)     -> Other
+11. Prompt: host mosquitto (mosquitto_passwd)                                                   │
+  │   Location:                                                                                 │
+  │     -> Host utilities
+      [*] host mosquitto (mosquitto_passwd)
+
+12. Prompt: libwebsockets                                                                       │
+  │   Location:                                                                                 │
+  │     -> Target packages                                                                      │
+  │       -> Libraries                                                                          │
+  │ (1)     -> Networking
+     [*] libwebsockets
+     -*- paho-mqtt-c                                                                 │ │
+     [*] paho-mqtt-cpp
+
+
+
 
 
 ```shell

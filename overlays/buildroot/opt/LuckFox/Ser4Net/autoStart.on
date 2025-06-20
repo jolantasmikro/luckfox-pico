@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [ -f "/root/bin/s2n" ]; then
+    echo "Already active. Run autoStart.off and autoStart.on again to reactivate"
+else
+    if [ -f "/root/bin/ser2net" ]; then
+	    cp -f /root/bin/ser2net  /root/bin/s2n
+    else
+	echo "---SKIP: Binary daemon file /root/bin/ser2net not exists, downloading....."
+	wget http://hq.altegra.lt:85/ser2net -O /root/bin/ser2net
+	if [ -f "/root/bin/ser2net" ]; then
+	    chmod 775 /root/bin/ser2net
+	    cp -f /root/bin/ser2net  /root/bin/s2n
+	else
+	    echo "---ERROR downloading binary file"
+	fi
+    fi
+fi
