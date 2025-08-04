@@ -34,10 +34,17 @@ make menuconfig
 1. Add minicom
 2. Add iftop 
 3. Add owerlays path ../../../../overlays/buildroot/   (System configuration --> ... Root filesystem overlay directories)
-4. Add pppd  Target packages → Networking applications
+4. Add pppd  (Target packages → Networking applications)
 5. Add cJSON
 5. Add libuci (automatiškai prisideda ir libubox, kuris turi daug gerų funkcijų)
 6. Add libcurl
+7. [*] kompexsqlite (Target packages -> Libraries -> Database)   [*]   Enable version 3 of the full-text search engine
+8. [*] paho-mqtt-c (Target packages → Libraries → Networking)
+9. [*] paho-mqtt-cpp  (Target packages → Libraries → Networking)
+10. [*] libmodbus ( Target packages → Libraries → Networking)
+11. [*] libev (Target packages → Libraries → Other)
+12. [*] mosquitto        (Target packages → Networking applications)
+        [-]   install the mosquitto broker
 
 
 ```shell
