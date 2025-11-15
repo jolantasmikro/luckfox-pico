@@ -14,3 +14,10 @@ ip route add default via $PPP_GW dev ppp0 table ppp
 
 # Pridėti taisyklę, kad srautas iš PPP IP naudotų tą lentelę
 ip rule add from $PPP_IP table ppp
+
+
+sleep 2
+chronyc -a makestep
+sleep 2
+chronyc -a makestep
+

@@ -83,6 +83,10 @@ make menuconfig
 
 14. Target packages → Networking applications → iproute2
 
+15. Target packages → System tools → Search (chrony) → Networking applications
+      [*] chrony
+      
+
 
 
 
@@ -90,7 +94,18 @@ make menuconfig
 make savedefconfig 
 make
 ```
+15. šjungiu:
+ → Target packages → Networking applications ──
+		   [*]   install the mosquitto broker
+		   
+		   
+16. make	 busybox-menuconfig  
+Networking Utilities  --->
+	  [ ] telnet (8.8 kb)
+	  [ ] telnetd (12 kb)
+sudo make busybox-update-config
 
+ TODO su busybox-menuconfig   reikia žiūrėti kad sumažinti fotfs. nes naujai perkompiliavus stiprei padidėjo
 
 [CONSOLE_From_UART2]
 (https://forums.luckfox.com/viewtopic.php?t=975)

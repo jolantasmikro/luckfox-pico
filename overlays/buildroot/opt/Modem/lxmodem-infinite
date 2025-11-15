@@ -21,7 +21,7 @@ do
             /opt/Modem/$SERVICE
             s=2
         else
-            if [ -f "/opt/Modem/ser4net" ]; then
+            if [ -f "/opt/Modem/$SERVICE" ]; then
                 echo "Modem not active. To activate please run /opt/Modem/autoStart.on"
                 s=10
             else

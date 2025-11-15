@@ -20,7 +20,7 @@ case $1 in
                 echo -n "alreadey running, skip"
             else
                # /root/bin/$SCRIPT &
-                /opt/LuckFox/Modem/$SERVICE &
+                /opt/Modem/$SERVICE &
                 #/home/root/bin/$SCRIPT &
             fi
             echo "done."
