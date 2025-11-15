@@ -34,7 +34,7 @@ make menuconfig
 1. Add minicom
 2. Add iftop 
 3. Add owerlays path ../../../../overlays/buildroot/   (System configuration --> ... Root filesystem overlay directories)
-4. Add pppd  Target packages → Networking applications
+4. Add pppd  (Target packages → Networking applications)
 5. Add cJSON
 5. Add libuci (automatiškai prisideda ir libubox, kuris turi daug gerų funkcijų)
 6. Add libcurl
