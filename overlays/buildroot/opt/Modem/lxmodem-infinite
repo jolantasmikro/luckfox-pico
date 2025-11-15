@@ -1,0 +1,33 @@
+#!/bin/sh
+s=1
+
+d=`date +"%Y-%m-%d %H:%M:%S"`
+SERVICE="lxmodem"
+
+while :
+do
+    sleep $s
+
+    x=$(ps | grep -v grep | grep $SERVICE)
+
+    if [ -n "$x" ]; then
+        #echo "Running"
+        s=10
+    else
+        echo "$SERVICE daemon Not Running"
+        if [ -f "/opt/Modem/$SERVICE" ]; then
+            echo -e "$d Starting Modem daemon /opt/Modem/$SERVICE"
+            logger "$d Starting Modem daemon /opt/Modem/$SERVICE"
+            /opt/Modem/$SERVICE
+            s=2
+        else
+            if [ -f "/opt/Modem/ser4net" ]; then
+                echo "Modem not active. To activate please run /opt/Modem/autoStart.on"
+                s=10
+            else
+                echo "Modem service not installed, copy LuckModem binary to /opt/Modem/ folder"
+                s=30
+            fi
+        fi
+    fi
+done

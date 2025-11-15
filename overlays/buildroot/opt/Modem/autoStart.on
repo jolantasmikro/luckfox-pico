@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ -f "/opt/Modem/lxmodem" ]; then
+    echo "Already active. Run autoStart.off and autoStart.on again to reactivate"
+else
+    if [ -f "/opt/Modem/LuckModem" ]; then
+            cp -f /opt/Modem/LuckModem  /opt/Modem/lxmodem
+    else
+        echo "---SKIP: Binary daemon file /opt/Modem/LuckModem not exists, downloading....."
+        # wget http://hq.altegra.lt:85/ser2net -O /root/bin/ser2net
+        # if [ -f "/root/bin/ser3net" ]; then
+            # chmod 775 /root/bin/ser3net
+            # cp -f /root/bin/ser3net  /root/bin/s3n
+        # else
+        #     echo "---ERROR downloading binary file"
+        # fi
+    fi
+fi
+

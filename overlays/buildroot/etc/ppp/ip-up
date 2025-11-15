@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Gauti dabartinį IP iš ppp0
+PPP_IP=$(ip -4 addr show dev ppp0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+
+# Gauti gateway iš maršruto
+PPP_GW=$(ip route | grep ppp0 | grep -oP '(?<=via\s)\d+(\.\d+){3}')
+
+# Pridėti lentelę, jei jos nėra
+grep -q "201 ppp" /etc/iproute2/rt_tables || echo "201 ppp" >> /etc/iproute2/rt_tables
+
+# Pridėti maršrutą į lentelę
+ip route add default via $PPP_GW dev ppp0 table ppp
+
+# Pridėti taisyklę, kad srautas iš PPP IP naudotų tą lentelę
+ip rule add from $PPP_IP table ppp

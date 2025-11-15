@@ -76,7 +76,12 @@ make menuconfig
      [*] libwebsockets
      -*- paho-mqtt-c                                                                 │ │
      [*] paho-mqtt-cpp
+ 
+13.  Target packages → Networking applications
+     [*] openresolv
 
+
+14. Target packages → Networking applications → iproute2
 
 
 
@@ -121,3 +126,10 @@ make
 
 
 /luckfox-pico/sysdrv/source/uboot/u-boot/arch/arm/dts/rv1106-u-boot.dtsi
+
+
+********************
+Python SQLITE3 PROBLEMOS:
+Jei BR2_PACKAGE_SQLITE įjungtas po python3-sqlite, pirmu kartu python3 jau buvo surinktas be _sqlite3. Reikia išvalyti (make python3-dirclean).
+Jei tavo toolchain neturi threads ar locale, Python3 moduliai kai kada būna skip’inami.
+```make sqlite-dirclean python3-dirclean```
