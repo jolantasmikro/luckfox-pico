@@ -72,7 +72,7 @@ post_chk()
 
 	network_init &
 	check_linker /userdata   /usr/www/userdata
-	check_linker /media/usb0 /usr/www/usb0
+	check_linker /media/usb0 /usr/www/RkLunch.sh0
 	check_linker /mnt/sdcard /usr/www/sdcard
 	# if /data/rkipc not exist, cp /usr/share
 	rkipc_ini=/userdata/rkipc.ini
