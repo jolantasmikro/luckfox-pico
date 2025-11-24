@@ -1,0 +1,47 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          rklunch-setup
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:     S
+# Default-Stop:      
+# Short-Description: One-time RkLunch.sh setup
+### END INIT INFO
+
+CUSTOM_RKLUNCH="/root/RkLunch.sh"
+TARGET_RKLUNCH="/oem/usr/bin/RkLunch.sh"
+SELF_SCRIPT="/etc/init.d/S35rklunch_setup"
+
+case "$1" in
+    start)
+        echo "Checking for custom RkLunch.sh..."
+        
+        if [ -f "$CUSTOM_RKLUNCH" ]; then
+            echo "Found custom RkLunch.sh, copying to $TARGET_RKLUNCH"
+            cp -f "$CUSTOM_RKLUNCH" "$TARGET_RKLUNCH"
+            chmod +x "$TARGET_RKLUNCH"
+            
+            # Ištrinti custom failą
+            rm -f "$CUSTOM_RKLUNCH"
+            echo "Custom RkLunch.sh installed successfully"
+            
+            # Ištrinti save
+            echo "Removing setup script..."
+            rm -f "$SELF_SCRIPT"
+            echo "Setup complete - script removed"
+        else
+            echo "No custom RkLunch.sh found, skipping..."
+            # Ištrinti save, nes nėra ką daryti
+            rm -f "$SELF_SCRIPT"
+        fi
+        ;;
+    stop)
+        # Nieko nedarome
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac
+
+exit 0

@@ -13,7 +13,7 @@
 	model = "Luckfox Pico Max";
 	compatible = "rockchip,rv1103g-38x38-ipc-v10", "rockchip,rv1106";
 	chosen {
-		stdout-path = &uart3;
+		stdout-path = &uart5;
 	/*	u-boot,spl-boot-order = &spi_nor, &emmc;*/
 	};
 };
@@ -95,10 +95,25 @@
 
 /**********UART**********/
 /* UART0_M1 */
+// &uart0 {
+// 	status = "okay";
+// 	pinctrl-0 = <&uart0m1_xfer &uart0m1_rtsn>;
+// };
+
+/* UART0_M1 - RS485 */
 &uart0 {
-	status = "okay";
-	pinctrl-0 = <&uart0m1_xfer &uart0m1_rtsn>;
+    status = "okay";
+   // pinctrl-names = "default";
+    pinctrl-0 = <&uart0m1_xfer>;   /* Naudoti hardware RTS */
+    
+    /* RS485 konfigūracija */
+    //  linux,rs485-enabled-at-boot-time;
+    //  rs485-rts-active-high;  /* arba rs485-rts-active-low, priklausomai nuo MAX485 logikos */
+    //  rs485-rts-delay = <0 1>;
+  //  rts-gpios = <&gpio2 RK_PA6 GPIO_ACTIVE_HIGH>;  /* GPIO2_A6 */
 };
+
+
 
 /* UART1_M1 */
 &uart1 {
@@ -136,3 +151,12 @@
 &wdt {
     status = "okay";
 };
+
+
+// &pinctrl {
+//     uart0 {
+//         uart0_rs485_gpio: uart0-rs485-gpio {
+//             rockchip,pins = <2 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
+//         };
+//     };
+// };
